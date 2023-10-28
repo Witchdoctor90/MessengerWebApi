@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerWebApi", "MessengerWebApi\MessengerWebApi.csproj", "{7A12D9B8-E4BF-41A3-8EF2-515FF346417D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessangerServer", "MessangerServer", "{E478C86E-D0AE-4AF8-96B0-7BF187FC0F0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A12D9B8-E4BF-41A3-8EF2-515FF346417D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A12D9B8-E4BF-41A3-8EF2-515FF346417D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A12D9B8-E4BF-41A3-8EF2-515FF346417D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A12D9B8-E4BF-41A3-8EF2-515FF346417D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A12D9B8-E4BF-41A3-8EF2-515FF346417D} = {E478C86E-D0AE-4AF8-96B0-7BF187FC0F0D}
+	EndGlobalSection
+EndGlobal

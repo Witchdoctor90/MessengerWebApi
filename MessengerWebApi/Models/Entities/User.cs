@@ -13,6 +13,7 @@ public class User : IdentityUser
     public string? Email { get; set; }
     public string Password { get; set; }
 
+    
     public string FirstName { get; set; }
     public string? LastName { get; set; }
     
@@ -21,6 +22,7 @@ public class User : IdentityUser
     public bool IsBlocked { get; set; }
     
     public string? Prefs { get; set; }
+    public List<Connection> Connections { get; set; } = new();
     public List<Contact> Contacts { get; set; } = new();
     public List<Conversation> Conversations { get; set; } = new();
     

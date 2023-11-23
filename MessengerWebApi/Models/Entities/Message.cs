@@ -15,5 +15,4 @@ public class Message
 
     private int ConversationId { get; set; }
     private int SenderId { get; set; }
-    
 }

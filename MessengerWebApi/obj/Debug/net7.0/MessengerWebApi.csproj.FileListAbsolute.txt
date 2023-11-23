@@ -11,16 +11,8 @@
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Sqlite.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Caching.Abstractions.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Caching.Memory.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Logging.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.OpenApi.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/SQLitePCLRaw.batteries_v2.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/SQLitePCLRaw.core.dll
@@ -28,8 +20,6 @@
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/System.Text.Encodings.Web.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/System.Text.Json.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/alpine-arm/native/libe_sqlite3.so
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/alpine-arm64/native/libe_sqlite3.so
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/alpine-x64/native/libe_sqlite3.so
@@ -53,7 +43,6 @@
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/win-arm64/native/e_sqlite3.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/win-x86/native/e_sqlite3.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/obj/Debug/net7.0/MessengerWebApi.csproj.AssemblyReference.cache
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/obj/Debug/net7.0/MessengerWebApi.GeneratedMSBuildEditorConfig.editorconfig
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/obj/Debug/net7.0/MessengerWebApi.AssemblyInfoInputs.cache
@@ -94,5 +83,3 @@
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/System.CodeDom.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
-/Users/alexandr/RiderProjects/MessengerWebApi/MessengerWebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Sqlite.Design.dll

@@ -5,7 +5,7 @@ namespace MessengerWebApi.Models.Options;
 
 public class JWTAuthOptions
 {
-    public const string ISSUER = "MessangerServer";
+    public const string ISSUER = "http://localhost:5193";
     public const string AUDIENCE = "MessangerClient";
     private const string KEY = "messangersecret@@992";
     

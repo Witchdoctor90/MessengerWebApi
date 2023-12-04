@@ -77,7 +77,7 @@ builder.Services.AddCors(opts =>
     });
 });
 
-builder.Services.AddScoped(typeof(IAsyncRepository<>),typeof(MessagesRepository));
+builder.Services.AddScoped(typeof(IAsyncRepository<Message>),typeof(MessagesRepository));
 
 
 var app = builder.Build();

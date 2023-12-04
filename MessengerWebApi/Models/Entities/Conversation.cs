@@ -6,11 +6,10 @@ public class Conversation
 {
 
     public int Id { get; set;}
-    
-    [Range(0,40)]
-    public string Title { get; set; }
+
+    [Range(0, 40)] public string Title { get; set; } = string.Empty;
     public int CreatorId { get; set; }
-    public int ChannelId { get; set; }
+    public string ChannelId { get; set; } = string.Empty;
 
     public List<User> Participants { get; set; } = new();
     

@@ -42,6 +42,28 @@ public class ChatHub : Hub<IChatClient>
 
         return new OkResult();
     }
+
+    public async Task<IActionResult> CreateConversation(string creatorUsername, string secondUsername)
+    {
+        var firstUser = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == creatorUsername);
+        var secondUser = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == secondUsername);
+
+        var conversation = new Conversation()
+        {
+            ChannelId = Guid.NewGuid().ToString("N"),
+            CreatedAt = DateTime.Now,
+            CreatorId = firstUser.Id,
+            UpdatedAt = DateTime.Now
+        };
+        conversation.Participants.Add(firstUser);
+        conversation.Participants.Add(secondUser);
+
+        _db.Conversations.Add(conversation);
+        
+        firstUser.Conversations.Add(conversation);
+        secondUser.Conversations.Add(conversation);
+        return new OkResult();
+    }
     
 
     public override async Task OnConnectedAsync()

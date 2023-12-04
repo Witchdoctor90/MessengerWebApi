@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace MessengerWebApi.Models.Interfaces;
 
-public interface IAsyncRepository<T> 
+public interface IAsyncRepository<T> where T : class
 {
 
     Task<T> GetById(int id);

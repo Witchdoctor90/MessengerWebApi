@@ -4,6 +4,8 @@ using MessengerWebApi.Models.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using SignalRSwaggerGen.Attributes;
@@ -28,6 +30,19 @@ public class ChatHub : Hub<IChatClient>
         if (sender is null) return;
         await Clients.All.ReceiveFrom(msg, sender.FirstName);
     }
+
+    public async Task<IActionResult> SendTo(string username, Message msg)
+    {
+        var user = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == username);
+        if (user == null) return new BadRequestResult();
+        foreach (var con in user.Connections)
+        {
+            await Clients.Client(con.ConnectionID).ReceiveFrom(msg, Context.User.Identity.Name);
+        }
+
+        return new OkResult();
+    }
+    
 
     public override async Task OnConnectedAsync()
     {

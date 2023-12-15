@@ -4,6 +4,7 @@ using MessengerWebApi.Models.Db.Repositories;
 using MessengerWebApi.Models.Entities;
 using MessengerWebApi.Models.Interfaces;
 using MessengerWebApi.Models.Options;
+using MessengerWebApi.Models.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Identity;
@@ -78,6 +79,7 @@ builder.Services.AddCors(opts =>
 });
 
 builder.Services.AddScoped(typeof(IAsyncRepository<Message>),typeof(MessagesRepository));
+builder.Services.AddScoped(typeof(IIdProvider), typeof(IdProvider));
 
 
 var app = builder.Build();

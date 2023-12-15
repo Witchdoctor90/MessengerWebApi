@@ -1,6 +1,8 @@
 using MessengerWebApi.Clients;
 using MessengerWebApi.Models.Db;
 using MessengerWebApi.Models.Entities;
+using MessengerWebApi.Models.Interfaces;
+using MessengerWebApi.Models.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -17,52 +19,53 @@ namespace MessengerWebApi.Hubs;
 public class ChatHub : Hub<IChatClient>
 {
     private readonly MessengerDbContext _db;
+    private readonly IIdProvider _idProvider;
 
-    public ChatHub(MessengerDbContext db)
+    public ChatHub(MessengerDbContext db, IIdProvider idProvider)
     {
         _db = db;
+        _idProvider = idProvider;
     }
+    
 
-
-    public async Task Send(Message msg)
+    public async Task CreateConversation(string title, List<string> participantsUsernames)
     {
-        var sender = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == Context.User.Identity.Name);
-        if (sender is null) return;
-        await Clients.All.ReceiveFrom(msg, sender.FirstName);
-    }
-
-    public async Task<IActionResult> SendTo(string username, Message msg)
-    {
-        var user = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == username);
-        if (user == null) return new BadRequestResult();
-        foreach (var con in user.Connections)
+        var creator = await _db.Users
+            .Include(u => u.Connections)
+            .FirstOrDefaultAsync(u => u.FirstName == Context.User.Identity.Name);
+        var participants = new List<User>();
+        foreach (var userName in participantsUsernames)
         {
-            await Clients.Client(con.ConnectionID).ReceiveFrom(msg, Context.User.Identity.Name);
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == userName);
+            participants.Add(user);
         }
-
-        return new OkResult();
-    }
-
-    public async Task<IActionResult> CreateConversation(string creatorUsername, string secondUsername)
-    {
-        var firstUser = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == creatorUsername);
-        var secondUser = await _db.Users.FirstOrDefaultAsync(u => u.FirstName == secondUsername);
 
         var conversation = new Conversation()
         {
-            ChannelId = Guid.NewGuid().ToString("N"),
+            Title = title,
+            ChannelId = _idProvider.GenerateId(),
             CreatedAt = DateTime.Now,
-            CreatorId = firstUser.Id,
+            CreatorId = creator.Id,
             UpdatedAt = DateTime.Now
         };
-        conversation.Participants.Add(firstUser);
-        conversation.Participants.Add(secondUser);
+
+        foreach (var participant in participants)
+        {
+            conversation.Participants.Add(participant);
+        }
 
         _db.Conversations.Add(conversation);
-        
-        firstUser.Conversations.Add(conversation);
-        secondUser.Conversations.Add(conversation);
-        return new OkResult();
+        await _db.SaveChangesAsync();
+
+        foreach (var con in creator.Connections)
+        {
+            await Clients.Client(con.ConnectionID).UpdateConversations();
+        }
+    }
+
+    public async Task<IActionResult> SendToConversation(Message msg)
+    {
+        throw new NotImplementedException();
     }
     
 

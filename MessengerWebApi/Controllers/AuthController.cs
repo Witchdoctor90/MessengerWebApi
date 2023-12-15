@@ -6,6 +6,7 @@ using MessengerWebApi.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using MessengerWebApi.Models.Options;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -34,8 +35,9 @@ public class AuthController : Controller
         });
         await _context.SaveChangesAsync();
         return Ok();
-    }
-
+    } 
+    
+    [HttpPost]
     public async Task<IActionResult> Login([FromBody] RegisterDTO user)
     {
         Models.Entities.User? identity = await _context.Users.FirstOrDefaultAsync(
@@ -89,6 +91,35 @@ public class AuthController : Controller
             ClaimsIdentity.DefaultRoleClaimType);
         
         return claimsIdentity;
+    }
+    
+    
+    //todo refactor this
+    [Authorize]
+    public async Task<IActionResult> GetUserInfo()
+    {
+        var user = await _context.Users
+            .Include(u => u.Contacts)
+            .Include(u => u.Conversations)
+            .FirstOrDefaultAsync(u => u.FirstName == User.Identity.Name);
+        var result = new IdentityUserDTO()
+        {
+            Username = user.FirstName,
+            Id = user.Id,
+            Conversations = new List<ConversationDTO>()
+        };
+        
+        foreach (var conversation in user.Conversations)
+        {
+            result.Conversations.Add(new ConversationDTO()
+            {
+                ChannelId = conversation.ChannelId,
+                ParticipantsId = conversation.Participants.Select(u => u.Id).ToList(),
+                Title = conversation.Title
+            });
+        }
+
+        return new ObjectResult(result);
     }
 }
 

@@ -13,6 +13,6 @@ public class Message
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime? DeletedAt { get; set; }
 
-    private int ConversationId { get; set; }
+    private string ConversationId { get; set; }
     private int SenderId { get; set; }
 }
